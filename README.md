@@ -2,6 +2,10 @@ Privacy Policy Generator
 
 This is a simple, single-file HTML, CSS (via Tailwind), and JavaScript tool to help website owners generate a basic privacy policy draft. It provides a user-friendly form that covers common sections required in a privacy policy.
 
+
+Demo
+https://ramonriosjr.github.io/Privacy-Policy-Generator/
+
 Features
 
 Single-File: Fully self-contained in one .html file. No external dependencies besides Tailwind CSS (loaded via CDN).
