@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy Generator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        fieldset {
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        legend {
+            font-size: 1.125rem;
+            font-weight: 600;
+            padding: 0 0.5rem;
+        }
+        label {
+            font-weight: 500;
+        }
+        .checkbox-label {
+            font-weight: 400;
+            margin-left: 0.5rem;
+        }
+        #policyOutput {
+            white-space: pre-wrap;
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            min-height: 200px;
+        }
+        #copyButton {
+            display: none; /* Hidden until policy is generated */
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4 md:p-8">
+    <div class="max-w-4xl mx-auto bg-white p-6 md:p-8 rounded-lg shadow-lg">
+        <h1 class="text-3xl font-bold text-center text-gray-800 mb-4">Privacy Policy Generator</h1>
+
+        <!-- IMPORTANT DISCLAIMER -->
+        <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4 mb-6 rounded-md" role="alert">
+            <p class="font-bold">Not Legal Advice</p>
+            <p>This tool generates a basic template for informational purposes only. It is **NOT** a substitute for professional legal advice. You are responsible for ensuring your final policy complies with all applicable laws (like GDPR, CCPA, etc.).</p>
+        </div>
+
+        <!-- Generator Form -->
+        <form id="policyForm" class="space-y-6">
+
+            <!-- Section 1: Introduction -->
+            <fieldset>
+                <legend>1. Introduction</legend>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="companyName" class="block text-sm font-medium text-gray-700">Company / Website Name:</label>
+                        <input type="text" id="companyName" placeholder="e.g., Coqui Cloud" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                    <div>
+                        <label for="websiteUrl" class="block text-sm font-medium text-gray-700">Website URL:</label>
+                        <input type="text" id="websiteUrl" placeholder="https://example.com" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Section 2: Information We Collect -->
+            <fieldset>
+                <legend>2. Information We Collect</legend>
+                <div class="space-y-4">
+                    <div>
+                        <span class="text-gray-700 font-medium">Personally Identifiable Information (PII):</span>
+                        <div class="mt-2 grid grid-cols-2 md:grid-cols-3 gap-2">
+                            <div class="flex items-center">
+                                <input id="collectName" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                                <label for="collectName" class="checkbox-label">Names</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input id="collectEmail" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                                <label for="collectEmail" class="checkbox-label">Email Addresses</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input id="collectPhone" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                                <label for="collectPhone" class="checkbox-label">Phone Numbers</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input id="collectAddress" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                                <label for="collectAddress" class="checkbox-label">Billing/Shipping Addresses</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input id="collectUsername" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                                <label for="collectUsername" class="checkbox-label">Usernames</label>
+                            </div>
+                             <div class="flex items-center">
+                                <input id="collectPayment" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                                <label for="collectPayment" class="checkbox-label">Payment Information</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="text-gray-700 font-medium">Non-Personal Information (Anonymous Data):</span>
+                        <div class="mt-2 grid grid-cols-2 md:grid-cols-3 gap-2">
+                            <div class="flex items-center">
+                                <input id="collectBrowser" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                                <label for="collectBrowser" class="checkbox-label">Browser Type</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input id="collectDevice" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                                <label for="collectDevice" class="checkbox-label">Device Type</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input id="collectIp" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                                <label for="collectIp" class="checkbox-label">IP Address</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input id="collectPages" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                                <label for="collectPages" class="checkbox-label">Pages Visited</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input id="collectTime" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                                <label for="collectTime" class="checkbox-label">Time on Site</label>
+                            </div>
+                        </div>
+                    </div>
+                     <div>
+                        <span class="text-gray-700 font-medium">How We Collect Data:</span>
+                        <div class="mt-2 grid grid-cols-2 md:grid-cols-3 gap-2">
+                            <div class="flex items-center">
+                                <input id="howForms" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                                <label for="howForms" class="checkbox-label">Contact Forms</label>
+                            </div>
+                             <div class="flex items-center">
+                                <input id="howRegistration" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                                <label for="howRegistration" class="checkbox-label">User Registration</label>
+                            </div>
+                             <div class="flex items-center">
+                                <input id="howNewsletter" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                                <label for="howNewsletter" class="checkbox-label">Newsletter Signups</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input id="howCookies" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                                <label for="howCookies" class="checkbox-label">Cookies</label>
+                            </div>
+                             <div class="flex items-center">
+                                <input id="howLogs" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                                <label for="howLogs" class="checkbox-label">Server Logs</label>
+                            </div>
+                            <div class="flex items-center">
+                                <input id="howAnalytics" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                                <label for="howAnalytics" class="checkbox-label">Google Analytics</label>
+                            </div>
+                             <div class="flex items-center">
+                                <input id="howPixels" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                                <label for="howPixels" class="checkbox-label">Web Beacons/Pixels</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+            
+            <!-- Section 3: How We Use Information -->
+            <fieldset>
+                <legend>3. How We Use Information</legend>
+                <div class="mt-2 grid grid-cols-2 md:grid-cols-3 gap-2">
+                    <div class="flex items-center">
+                        <input id="useService" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                        <label for="useService" class="checkbox-label">To provide our service</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input id="useTransactions" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                        <label for="useTransactions" class="checkbox-label">To process transactions</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input id="useCommunicate" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                        <label for="useCommunicate" class="checkbox-label">To communicate with users</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input id="useImprove" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                        <label for="useImprove" class="checkbox-label">To improve the website</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input id="useMarketing" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                        <label for="useMarketing" class="checkbox-label">For marketing</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input id="useSecurity" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                        <label for="useSecurity" class="checkbox-label">For security</label>
+                    </div>
+                     <div class="flex items-center">
+                        <input id="useLegal" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                        <label for="useLegal" class="checkbox-label">To comply with law</label>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Section 4: Data Sharing -->
+            <fieldset>
+                <legend>4. Sharing Information with Third Parties</legend>
+                <div class="space-y-4">
+                    <div>
+                        <input id="shareNo" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                        <label for="shareNo" class="checkbox-label">We do not sell or share personal data with third parties for their marketing.</label>
+                    </div>
+                    <span class="text-gray-700 font-medium">We may share information with:</span>
+                    <div class="mt-2 grid grid-cols-2 md:grid-cols-3 gap-2">
+                        <div class="flex items-center">
+                            <input id="shareProviders" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                            <label for="shareProviders" class="checkbox-label">Service Providers (Hosting, Payments)</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input id="shareAnalytics" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                            <label for="shareAnalytics" class="checkbox-label">Analytics Partners (Google Analytics)</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input id="shareAds" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                            <label for="shareAds" class="checkbox-label">Advertising Partners</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input id="shareLegal" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                            <label for="shareLegal" class="checkbox-label">For Legal Requirements (Subpoena)</label>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="shareOther" class="block text-sm font-medium text-gray-700">Other third parties (optional, list them):</label>
+                        <input type="text" id="shareOther" placeholder="e.g., Odoo, Cloudflare" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Section 5: Data Security -->
+            <fieldset>
+                <legend>5. Data Security</legend>
+                <div>
+                    <label for="dataSecurity" class="block text-sm font-medium text-gray-700">Describe your security measures:</label>
+                    <textarea id="dataSecurity" rows="4" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="We use SSL encryption, data is stored on a dedicated server, antivirus, backup, firewall... We take reasonable steps to secure the personal information you provide to us."></textarea>
+                </div>
+            </fieldset>
+            
+            <!-- Section 6: Cookie Policy -->
+            <fieldset>
+                <legend>6. Cookie Policy</legend>
+                <div class="space-y-4">
+                     <span class="text-gray-700 font-medium">We use the following types of cookies:</span>
+                     <div class="mt-2 grid grid-cols-2 md:grid-cols-3 gap-2">
+                        <div class="flex items-center">
+                            <input id="cookieNecessary" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                            <label for="cookieNecessary" class="checkbox-label">Strictly Necessary</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input id="cookieAnalytics" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                            <label for="cookieAnalytics" class="checkbox-label">Analytics/Performance</label>
+                        </div>
+                        <div class="flex items-center">
+                            <input id="cookieFunctional" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                            <label for="cookieFunctional" class="checkbox-label">Functionality</label>
+                        </div>
+                         <div class="flex items-center">
+                            <input id="cookieAds" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                            <label for="cookieAds" class="checkbox-label">Advertising/Targeting</label>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="cookieOptOut" class="block text-sm font-medium text-gray-700">How can users opt-out?</label>
+                        <input type="text" id="cookieOptOut" value="Users can manage cookie preferences through their browser settings." class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Section 7: User Rights (GDPR/CCPA) -->
+             <fieldset>
+                <legend>7. User Data Rights</legend>
+                 <span class="text-gray-700 font-medium">Users may have the following rights:</span>
+                 <div class="mt-2 grid grid-cols-2 md:grid-cols-3 gap-2">
+                    <div class="flex items-center">
+                        <input id="rightAccess" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                        <label for="rightAccess" class="checkbox-label">Right to Access</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input id="rightCorrect" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                        <label for="rightCorrect" class="checkbox-label">Right to Rectify/Correct</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input id="rightDelete" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                        <label for="rightDelete" class="checkbox-label">Right to Erasure/Delete</label>
+                    </div>
+                     <div class="flex items-center">
+                        <input id="rightPortability" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                        <label for="rightPortability" class="checkbox-label">Right to Data Portability</label>
+                    </div>
+                     <div class="flex items-center">
+                        <input id="rightObject" type="checkbox" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
+                        <label for="rightObject" class="checkbox-label">Right to Object</label>
+                    </div>
+                </div>
+                <div class="mt-4">
+                    <label for="userRights" class="block text-sm font-medium text-gray-700">How can users exercise their rights?</label>
+                    <input type="text" id="userRights" placeholder="By contacting us at the email address below." class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                </div>
+            </fieldset>
+
+            <!-- Section 8: Children's Privacy -->
+            <fieldset>
+                <legend>8. Children's Privacy</legend>
+                <div class="flex flex-col space-y-2">
+                     <div class="flex items-center">
+                        <input id="childNo" type="radio" name="childPolicy" value="no" checked class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
+                        <label for="childNo" class="ml-2 block text-sm text-gray-900">Our service does not address anyone under the age of 13.</label>
+                    </div>
+                    <div class="flex items-center">
+                        <input id="childYes" type="radio" name="childPolicy" value="yes" class="h-4 w-4 text-blue-600 border-gray-300 focus:ring-blue-500">
+                        <label for="childYes" class="ml-2 block text-sm text-gray-900">We knowingly collect data from children under 13 (explain below).</label>
+                    </div>
+                    <div>
+                        <label for="childExplain" class="block text-sm font-medium text-gray-700">Explanation (if yes):</label>
+                        <textarea id="childExplain" rows="2" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500" placeholder="Explain how you get parental consent..."></textarea>
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Section 9: Policy Changes -->
+            <fieldset>
+                <legend>9. Policy Changes</legend>
+                 <div>
+                    <label for="policyChanges" class="block text-sm font-medium text-gray-700">How will users be notified of changes?</label>
+                    <input type="text" id="policyChanges" value="By posting the new policy on this page." class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                </div>
+            </fieldset>
+
+            <!-- Section 10: Contact Us -->
+             <fieldset>
+                <legend>10. Contact Us</legend>
+                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div>
+                        <label for="contactEmail" class="block text-sm font-medium text-gray-700">Privacy Contact Email:</label>
+                        <input type="email" id="contactEmail" placeholder="privacy@example.com" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                     <div>
+                        <label for="contactAddress" class="block text-sm font-medium text-gray-700">Company Address (Optional):</label>
+                        <input type="text" id="contactAddress" placeholder="123 Main St, City, Country" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                    </div>
+                </div>
+            </fieldset>
+
+            <!-- Generate Button -->
+            <div class="text-center">
+                <button type="button" id="generateButton" class="w-full md:w-auto inline-flex justify-center py-3 px-6 border border-transparent shadow-sm text-base font-medium rounded-md text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    Generate Policy
+                </button>
+            </div>
+        </form>
+
+        <!-- Output Section -->
+        <div id="outputSection" class="mt-8" style="display: none;">
+            <div class="flex justify-between items-center mb-4">
+                <h2 class="text-2xl font-semibold text-gray-800">Generated Policy Draft</h2>
+                <button type="button" id="copyButton" class="inline-flex items-center px-4 py-2 border border-gray-300 shadow-sm text-sm font-medium rounded-md text-gray-700 bg-white hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    <svg class="-ml-1 mr-2 h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                        <path d="M8 2a1 1 0 00-1 1v1H5a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2V6a2 2 0 00-2-2h-2V3a1 1 0 00-1-1H8zM5 6h10v10H5V6z" />
+                        <path d="M8 3a1 1 0 000 2h4a1 1 0 100-2H8z" />
+                    </svg>
+                    Copy to Clipboard
+                </button>
+            </div>
+            <div id="policyOutput" aria-live="polite"></div>
+            <p id="copySuccess" class="text-green-600 font-medium mt-2" style="display: none;">Copied to clipboard!</p>
+        </div>
+    </div>
+
+    <script>
+        // DOM Elements
+        const form = document.getElementById('policyForm');
+        const generateButton = document.getElementById('generateButton');
+        const outputSection = document.getElementById('outputSection');
+        const policyOutput = document.getElementById('policyOutput');
+        const copyButton = document.getElementById('copyButton');
+        const copySuccess = document.getElementById('copySuccess');
+
+        // Helper function to get checked items from a group
+        const getCheckedValues = (inputs) => {
+            return Object.keys(inputs)
+                .filter(id => document.getElementById(id).checked)
+                .map(id => inputs[id]);
+        };
+
+        // Generate Policy Logic
+        generateButton.addEventListener('click', () => {
+            let policyText = '';
+            const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+            
+            const g = (id) => document.getElementById(id).value;
+            const c = (id) => document.getElementById(id).checked;
+
+            const company = g('companyName') || '[Your Company Name]';
+            const url = g('websiteUrl') || '[Your Website URL]';
+
+            // --- 1. Introduction ---
+            policyText += `Privacy Policy for ${company}\n`;
+            policyText += `Last Updated: ${today}\n\n`;
+            policyText += `This privacy policy ("Policy") describes how ${company} ("we," "us," or "our") collects, uses, and protects personal information from visitors ("you") of ${url} (the "Site").\n\n`;
+
+            // --- 2. Information We Collect ---
+            policyText += `2. Information We Collect\n\n`;
+            
+            const piiInputs = {
+                collectName: 'Names', collectEmail: 'Email Addresses', collectPhone: 'Phone Numbers',
+                collectAddress: 'Billing/Shipping Addresses', collectUsername: 'Usernames', collectPayment: 'Payment Information'
+            };
+            const piiCollected = getCheckedValues(piiInputs);
+            if (piiCollected.length > 0) {
+                policyText += `We may collect personally identifiable information (PII) that you voluntarily provide to us, such as: ${piiCollected.join(', ')}.\n\n`;
+            } else {
+                policyText += `We do not actively collect personally identifiable information (PII), though it may be provided to us via contact forms.\n\n`;
+            }
+            
+            const nonPiiInputs = {
+                collectBrowser: 'Browser Type', collectDevice: 'Device Type', collectIp: 'IP Address',
+                collectPages: 'Pages Visited', collectTime: 'Time on Site'
+            };
+            const nonPiiCollected = getCheckedValues(nonPiiInputs);
+             if (nonPiiCollected.length > 0) {
+                policyText += `We may also automatically collect non-personal information as you navigate the Site, such as: ${nonPiiCollected.join(', ')}.\n\n`;
+            }
+            
+            const howInputs = {
+                howForms: 'Contact Forms', howRegistration: 'User Registration Forms', howNewsletter: 'Newsletter Signups',
+                howCookies: 'Cookies', howLogs: 'Server Logs', howAnalytics: 'Third-Party Analytics (e.g., Google Analytics)',
+                howPixels: 'Web Beacons/Pixels'
+            };
+            const howCollected = getCheckedValues(howInputs);
+            if (howCollected.length > 0) {
+                policyText += `This information is collected through: ${howCollected.join(', ')}.\n\n`;
+            }
+
+            // --- 3. How We Use Your Information ---
+            policyText += `3. How We Use Your Information\n\n`;
+            policyText += `We use the information we collect for various purposes, including:\n`;
+            
+            const useInputs = {
+                useService: 'To provide and maintain our service', useTransactions: 'To process your transactions',
+                useCommunicate: 'To communicate with you (e.g., respond to inquiries)',
+                useImprove: 'To improve our website and services',
+                useMarketing: 'For marketing and promotional purposes',
+                useSecurity: 'For security and fraud prevention',
+                useLegal: 'To comply with our legal obligations'
+            };
+            const uses = getCheckedValues(useInputs);
+            if (uses.length > 0) {
+                uses.forEach(use => { policyText += `• ${use}\n`; });
+            } else {
+                 policyText += `• To operate and maintain our Site.\n`;
+            }
+            policyText += `\n`;
+
+            // --- 4. Data Sharing ---
+            policyText += `4. Sharing Your Information\n\n`;
+            if (c('shareNo')) {
+                policyText += `We do not sell or share your personal information with third parties for their own marketing purposes.\n\n`;
+            }
+            
+            const shareInputs = {
+                shareProviders: 'Service Providers (e.g., hosting, payment processors) who assist us in operating our Site.',
+                shareAnalytics: 'Analytics Partners (e.g., Google Analytics) to help us understand website usage.',
+                shareAds: 'Advertising Partners to deliver relevant ads.',
+                shareLegal: 'To comply with legal obligations, such as responding to a subpoena or court order.'
+            };
+            const shares = getCheckedValues(shareInputs);
+            if(shares.length > 0) {
+                policyText += `We may share information with the following types of third parties:\n`;
+                shares.forEach(share => { policyText += `• ${share}\n`; });
+                policyText += `\n`;
+            }
+            
+            if (g('shareOther')) {
+                policyText += `We also share data with: ${g('shareOther')}.\n\n`;
+            }
+
+            // --- 5. Data Security ---
+            policyText += `5. Data Security\n\n`;
+            policyText += `${g('dataSecurity') || 'We implement reasonable security measures to protect your information, but no system is 100% secure.'}\n\n`;
+
+            // --- 6. Cookie Policy ---
+            if(c('howCookies')) {
+                policyText += `6. Cookie Policy\n\n`;
+                policyText += `Our Site uses cookies to enhance your experience. Cookies are small files stored on your device. We use them for purposes such as:\n`;
+                const cookieInputs = {
+                    cookieNecessary: 'Strictly Necessary: To enable core site functionality.',
+                    cookieAnalytics: 'Analytics/Performance: To understand how you use our site.',
+                    cookieFunctional: 'Functionality: To remember your preferences.',
+                    cookieAds: 'Advertising/Targeting: To show you relevant ads.'
+                };
+                const cookies = getCheckedValues(cookieInputs);
+                if (cookies.length > 0) {
+                    cookies.forEach(cookie => { policyText += `• ${cookie}\n`; });
+                } else {
+                    policyText += `• Basic site operation.\n`;
+                }
+                policyText += `${g('cookieOptOut') || 'You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent.'}\n\n`;
+            }
+            
+            // --- 7. User Rights ---
+            policyText += `7. Your Data Rights\n\n`;
+            policyText += `Depending on your location (e.g., GDPR in Europe, CCPA in California), you may have rights regarding your personal data:\n`;
+            const rightsInputs = {
+                rightAccess: 'The right to access your data.',
+                rightCorrect: 'The right to rectify or correct your data.',
+                rightDelete: 'The right to erase or delete your data.',
+                rightPortability: 'The right to data portability.',
+                rightObject: 'The right to object to processing.'
+            };
+            const rights = getCheckedValues(rightsInputs);
+            if (rights.length > 0) {
+                rights.forEach(right => { policyText += `• ${right}\n`; });
+            } else {
+                policyText += `• You may have rights to access or delete your data.\n`;
+            }
+            policyText += `To exercise these rights, please ${g('userRights') || 'contact us at the email address below.'}\n\n`;
+            
+            // --- 8. Children's Privacy ---
+            policyText += `8. Children's Privacy\n\n`;
+            if (c('childNo')) {
+                policyText += `Our service does not address anyone under the age of 13. We do not knowingly collect personal information from children under 13.\n\n`;
+            } else {
+                policyText += `We may collect data from children under 13. ${g('childExplain') || 'We do so only with verifiable parental consent.'}\n\n`;
+            }
+
+            // --- 9. Changes to This Policy ---
+            policyText += `9. Changes to This Policy\n\n`;
+            policyText += `We may update this Policy from time to time. ${g('policyChanges') || 'We will notify you of any changes by posting the new Policy on this page.'}\n\n`;
+            
+            // --- 10. Contact Us ---
+            policyText += `10. Contact Us\n\n`;
+            policyText += `If you have any questions about this Privacy Policy, you can contact us at:\n`;
+            policyText += `Email: ${g('contactEmail') || '[Your Contact Email]'}\n`;
+            if (g('contactAddress')) {
+                 policyText += `Address: ${g('contactAddress')}\n`;
+            }
+
+            // Display Output
+            policyOutput.textContent = policyText;
+            outputSection.style.display = 'block';
+            copyButton.style.display = 'inline-flex';
+            copySuccess.style.display = 'none';
+        });
+
+        // Copy to Clipboard Logic
+        copyButton.addEventListener('click', () => {
+            const textToCopy = policyOutput.textContent;
+            
+            // Fallback for iFrame environment
+            const textArea = document.createElement('textarea');
+            textArea.value = textToCopy;
+            document.body.appendChild(textArea);
+            textArea.select();
+            try {
+                document.execCommand('copy');
+                copySuccess.style.display = 'block';
+                setTimeout(() => { copySuccess.style.display = 'none'; }, 2000);
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+                copySuccess.textContent = 'Failed to copy!';
+                copySuccess.style.color = 'red';
+                copySuccess.style.display = 'block';
+            }
+            document.body.removeChild(textArea);
+        });
+    </script>
+</body>
+</html>
+
